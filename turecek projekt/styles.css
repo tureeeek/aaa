@@ -1,0 +1,140 @@
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zarovnání blokového elementu</title>
+    <style>
+        .center-div {
+            width: 50%;
+            margin: 0 auto; /* Horizontální centrování */
+            padding: 20px;
+            text-align: center; /* Zarovnání textu uvnitř */
+        }
+    </style>
+</head>
+<body>
+    <div class="center-div">
+        Tento blokový element je zarovnán doprostřed.
+    </div>
+</body>
+</html>
+/* Základní reset pro všechny elementy */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Nastavení pro tělo stránky a HTML */
+html, body {
+    height: 100%; /* Zajistí, že výška stránky bude 300% */
+    font-family: Arial, sans-serif;
+}
+
+/* Hlavní obsah stránky */
+.content {
+    padding: 20px;
+    /* Další obsah, například obrázky, texty atd. */
+}
+
+/* Styl pro footer */
+footer.footer {
+    background-color: #1a1a1a;
+    color: rgb(175, 212, 241);
+    text-align: center;
+    padding: 10px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    padding-top: 60px; /* Výška navbaru (aby obsah nezačínal pod navbar) */
+}
+
+.navbar {
+    position: fixed; /* Připevněno k vrchu stránky */
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #333;
+    color: white;
+    z-index: 1000; /* Aby byl navbar vždy nad obsahem */
+}
+
+.navbar .logo a {
+    text-decoration: none;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+}
+
+.nav-links a:hover {
+    color: #f0a500;
+}
+
+/* Hamburger menu */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger .bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 4px 0;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        background-color: #333;
+        position: absolute;
+        top: 60px; /* Zajistí, že menu je pod navbar */
+        left: 0;
+        padding: 20px;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+        text-align: center;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+}

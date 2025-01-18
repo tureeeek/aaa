@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zarovnání blokového elementu a fixovaný navbar</title>
+    <style>
+        /* Základní reset pro všechny elementy */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Nastavení pro tělo stránky a HTML */
+        html, body {
+            height: 300%; /* Zajistí, že výška stránky bude 100% */
+            font-family: Arial, sans-serif;
+            text-align: center; /* Centrum veškerého textu na stránce */
+        }
+
+        body {
+            padding-top: 80px; /* Výška navbaru (aby obsah nezačínal pod navbar) */
+        }
+
+        /* Styl pro zarovnání blokového elementu */
+        .center-div {
+            width: 50%;
+            margin: 0 auto; /* Horizontální centrování */
+            padding: 20px;
+            background-color: #f4f4f4; /* Přidání pozadí pro lepší viditelnost */
+        }
+
+        /* Fixovaný navbar na vrchu stránky */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center; /* Centrum navbaru */
+            align-items: center;
+            padding: 15px;
+            background-color: #000000;
+            color: white;
+            z-index: 1000; /* Aby byl navbar vždy nad obsahem */
+        }
+
+        .navbar .logo a {
+            text-decoration: none;
+        }
+
+        .navbar .logo img {
+            height: 40px; /* Nastaví výšku loga */
+            width: auto; /* Zachová poměr stran */
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-left: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+        }
+
+        .nav-links a:hover {
+            color: #f0a500;
+        }
+
+        /* Hamburger menu pro mobilní zařízení */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger .bar {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 4px 0;
+        }
+
+        /* Media Queries pro responsivní zobrazení */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                background-color: #333;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                padding: 20px;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 10px 0;
+                text-align: center;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+        }
+
+        /* Styl pro footer */
+        footer.footer {
+            background-color: #1a1a1a;
+            color: rgb(175, 212, 241);
+            padding: 10px;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Styl pro obrázky vedle sebe */
+        .image-container {
+            display: flex;
+            justify-content: space-evenly; /* Rovnoměrné rozložení obrázků */
+            align-items: center; /* Vertikálně je zarovnáme na střed */
+            padding: 20px;
+            width: 100%;
+        }
+
+        .image-container img {
+            width: 18%; /* Každý obrázek zabere 18% šířky (můžeš upravit podle potřeby) */
+            height: auto; /* Zachová poměr stran */
+            border-radius: 8px; /* Volitelné, přidává zaoblené rohy */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Volitelné, přidává stín kolem obrázků */
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Navbar - fixovaný na vrchu stránky -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="#">
+                    <img src="https://www.freeiconspng.com/thumbs/nike-logo/download-nike-logo-high-quality-png-25.png" alt="Nike Logo">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#">Domů</a></li>
+                <li><a href="#">O nás</a></li>
+                <li><a href="#">Služby</a></li>
+                <li><a href="#">Kontakt</a></li>
+            </ul>
+            <div class="hamburger">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hlavní obsah stránky -->
+    <div class="content">
+        <div class="center-div">
+            Blackfriday až 30%
+        </div>
+
+        <h1>GET COMFORTABLE WITH SWINNING</h1>
+        <p>pohodlí a uspěchy jsou duležité</p>
+    </div>
+
+    <!-- Obrázky vedle sebe -->
+    <div class="image-container">
+        <img src="https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/877d30e7-4880-46f8-aa71-6704eb7d944d/AIR+MAX+PLUS.png" alt="Obrázek 1">
+        <img src="https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/b1bcbca4-e853-4df7-b329-5be3c61ee057/NIKE+DUNK+LOW+RETRO.png" alt="Obrázek 2">
+        <img src="https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/c76e2119-acb7-4944-9085-d4f5ae2bda4a/NIKE+GO+FLYEASE.png" alt="Obrázek 3">
+    </div>
+
+    <!-- Footer (zápatí) -->
+    <footer class="footer">
+        <p>&copy; v roce 2025 budeme ještě více zdokonalovat kvalitu</p>
+    </footer>
+
+</body>
+</html>
